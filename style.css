@@ -1,0 +1,12 @@
+
+.title {
+    text-align: center;
+    margin-top: 3em;
+    padding: 3em;
+};
+
+.frame {
+    height: 300px;
+    width: 300px;
+    border: 5px solid black;
+};
