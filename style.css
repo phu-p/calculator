@@ -2,6 +2,10 @@ body, html {
     background-color: black;
   }
 
+  .title {
+    color: white;
+}
+
 .container {
     display: flex;
     justify-content: center;
