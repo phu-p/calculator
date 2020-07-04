@@ -8,8 +8,9 @@ body, html {
     padding: 3em;
 };
 
-.frame {
-    height: 300px;
-    width: 300px;
-    border: 5px solid black;
-};
+.calculator {
+    width: 100px;
+    height: 500px;
+    width: 200px;
+    border: 5px solid white;
+}
