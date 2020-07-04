@@ -2,11 +2,12 @@ body, html {
     background-color: black;
   }
 
-.title {
-    text-align: center;
-    margin-top: 3em;
-    padding: 3em;
-};
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+}
 
 .calculator {
     width: 100px;
