@@ -1,7 +1,3 @@
-body, html {
-    background-color: black;
-  }
-
   .title {
     font-family: 'Righteous', cursive;
     font-size: 90px;
@@ -20,5 +16,5 @@ body, html {
     height: 500px;
     width: 300px;
     border-radius: 15px;
-    border: 5px solid white;
+    border: 5px solid black;
 }
