@@ -3,9 +3,8 @@ body, html {
   }
 
   .title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: white;
+    font-family: 'Righteous', cursive;
+    font-size: 90px;
     padding-right: 10%;
 }
 
