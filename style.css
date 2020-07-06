@@ -6,6 +6,7 @@ body, html {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     color: white;
+    padding-right: 10%;
 }
 
 .container {
@@ -13,11 +14,10 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 98vh;
-    margin-right: 100px;
+    margin-right: 200px;
 }
 
 .calculator {
-    width: 100px;
     height: 500px;
     width: 300px;
     border-radius: 15px;
