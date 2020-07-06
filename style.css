@@ -3,6 +3,8 @@ body, html {
   }
 
   .title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     color: white;
 }
 
