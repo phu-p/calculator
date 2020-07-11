@@ -45,6 +45,42 @@
     grid-area: secondScreen;
 }
 
-.buttons {
-    grid-area: button;
+.clear {
+    grid-area: clear;
+}
+
+.delete {
+    grid-area: delete;
+}
+
+.power {
+    grid-area: power;
+}
+
+.factorial {
+    grid-area: factorial;
+}
+
+.divison {
+    grid-area: divison;
+}
+
+.multiplication {
+    grid-area: multiplication;
+}
+
+.subtraction {
+    grid-area: subtraction;
+}
+
+.decimal {
+    grid-area: deci;
+}
+
+.equal {
+    grid-area: equal;
+}
+
+.addition {
+    grid-area: addition;
 }
