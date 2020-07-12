@@ -20,10 +20,10 @@
                         "firstScreen firstScreen firstScreen firstScreen"
                         "secondScreen secondScreen secondScreen secondScreen"               
                         "clear delete power factorial"
-                        "7 8 9 divison"
-                        "4 5 6 multiplication"
-                        "1 2 3 subtraction"
-                        "0 deci equal addition";
+                        "num7 num8 num9 divison"
+                        "num4 num5 num6 multiplication"
+                        "num1 num2 num3 subtraction"
+                        "num0 deci equal addition";
     height: 500px;
     width: 300px;
     border-radius: 15px;
