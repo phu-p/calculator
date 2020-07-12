@@ -56,6 +56,8 @@ sup {
 .input {
     grid-area: input;
     width: auto;
+    justify-self: end;
+    align-self: end;
 }
 
 .clear {
