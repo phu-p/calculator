@@ -20,7 +20,7 @@ sup {
 .calculator {
     display: grid;
     grid-template-columns: repeat(4 , 25%);
-    grid-template-rows: repeat(7, 14.28%);
+    grid-template-rows: 5% 20% repeat(5, 15%);
     grid-template-areas:
                         "empty empty empty empty"
                         "input input input input"               
