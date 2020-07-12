@@ -36,10 +36,10 @@ sup {
 }
 
 .screen {
-    width: 300px;
     background-color: khaki;
     border-radius: 2px;
     border: 1px solid black;
+    height: 100px;
 }
 
 .button {
