@@ -32,7 +32,7 @@ sup {
     height: 500px;
     width: 300px;
     border-radius: 15px;
-    border: 5px solid black;
+    border: thick double #A9A9A9;
     color: white;
     background-color: black;
 }
