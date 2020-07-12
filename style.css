@@ -37,7 +37,6 @@ sup {
 
 .placement {
     grid-area: empty;
-    height: 30px;
     background-color: black;
 }
 
@@ -45,7 +44,6 @@ sup {
     background-color: khaki;
     border-radius: 2px;
     border: 1px solid black;
-    height: 100px;
 }
 
 .button {
