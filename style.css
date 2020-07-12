@@ -37,6 +37,11 @@
     border: 1px solid black;
 }
 
+.button {
+    justify-self: center;
+    align-self: center;
+}
+
 .output {
     grid-area: firstScreen;
 }
