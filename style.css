@@ -22,13 +22,13 @@ sup {
     grid-template-columns: 1% repeat(4 , 24.5%) 1%;
     grid-template-rows: 5% 20% repeat(5, 15%);
     grid-template-areas:
-                        "empty empty empty empty"
-                        "input input input input"               
-                        "clear delete power factorial"
-                        "num7 num8 num9 division"
-                        "num4 num5 num6 multiplication"
-                        "num1 num2 num3 subtraction"
-                        "num0 deci equal addition";
+                        ". empty empty empty empty ."
+                        ". input input input input ."               
+                        ". clear delete power factorial ."
+                        ". num7 num8 num9 division ."
+                        ". num4 num5 num6 multiplication ."
+                        ". num1 num2 num3 subtraction ."
+                        ". num0 deci equal addition .";
     height: 500px;
     width: 300px;
     border-radius: 15px;
