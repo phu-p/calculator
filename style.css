@@ -4,6 +4,11 @@
     padding-right: 10%;
 }
 
+sup {
+    font-size:xx-small; 
+    vertical-align:super;
+}
+
 .container {
     display: flex;
     justify-content: center;
