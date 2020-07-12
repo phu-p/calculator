@@ -22,8 +22,8 @@ sup {
     grid-template-columns: repeat(4 , 25%);
     grid-template-rows: repeat(7, 14.28%);
     grid-template-areas:
-                        "firstScreen firstScreen firstScreen firstScreen"
-                        "secondScreen secondScreen secondScreen secondScreen"               
+                        ". . . ."
+                        "input input input input"               
                         "clear delete power factorial"
                         "num7 num8 num9 division"
                         "num4 num5 num6 multiplication"
@@ -47,12 +47,9 @@ sup {
     align-self: center;
 }
 
-.output {
-    grid-area: firstScreen;
-}
-
-.intput {
-    grid-area: secondScreen;
+.input {
+    grid-area: input;
+    width: auto;
 }
 
 .clear {
