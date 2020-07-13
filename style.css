@@ -37,11 +37,6 @@ sup {
     background-color: black;
 }
 
-.placement {
-    grid-area: empty;
-    background-color: black;
-}
-
 .screen {
     background-color: black;
     border-radius: 2px;
