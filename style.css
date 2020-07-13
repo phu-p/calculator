@@ -39,6 +39,7 @@ sup {
 }
 
 .screen {
+    font-size: 45px;
     margin-right: 10%;
     background-color: black;
     border-radius: 2px;
