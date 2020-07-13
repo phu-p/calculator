@@ -38,6 +38,7 @@ sup {
 }
 
 .screen {
+    margin-right: 10%;
     background-color: black;
     border-radius: 2px;
     border: 1px solid black;
