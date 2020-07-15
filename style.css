@@ -101,10 +101,6 @@ sup {
     grid-area: factorial;
 }
 
-.divison {
-    grid-area: divison;
-}
-
 .multiplication {
     grid-area: multiplication;
 }
