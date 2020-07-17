@@ -40,6 +40,9 @@ sup {
 }
 
 .screen {
+    grid-area: input;
+    justify-self: end;
+    align-self: end;
     font-size: 45px;
     margin-right: 5%;
     background-color: black;
