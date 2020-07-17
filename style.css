@@ -86,12 +86,6 @@ sup {
 
 }
 
-.input {
-    grid-area: input;
-    justify-self: end;
-    align-self: end;
-}
-
 .clear {
     grid-area: clear;
     padding-right: 10%;
