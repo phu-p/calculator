@@ -32,7 +32,7 @@ sup {
                         ". num1 num2 num3 subtraction ."
                         ". num0 deci equal addition .";
     height: 500px;
-    flex: 0 0 300px;
+    flex: 0 0 250px;
     border-radius: 15px;
     border: thick double #A9A9A9;
     color: white;
