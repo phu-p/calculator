@@ -69,19 +69,16 @@ sup {
     border: 10px solid #696969;
     background-color: #696969;
     color: whitesmoke;
-    width: 20px;
 }
 
 .left-side {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    width: 20px;
 }
 
 .right-side {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    width: 20px;
 }
 
 .well-rounded {
@@ -100,118 +97,80 @@ sup {
 
 .clear {
     grid-area: clear;
-    padding-right: 10%;
 }
 
 .delete {
     grid-area: delete;
-    padding-right: 10%;
 }
 
 .power {
     grid-area: power;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .factorial {
     grid-area: factorial;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .multiplication {
     grid-area: multiplication;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .division {
     grid-area: division;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .subtraction {
     grid-area: subtraction;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .decimal {
     grid-area: deci;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .equal {
     grid-area: equal;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .addition {
     grid-area: addition;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num7 {
     grid-area: num7;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num8 {
     grid-area: num8;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num9 {
     grid-area: num9;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num4 {
     grid-area: num4;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num5 {
     grid-area: num5;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num6 {
     grid-area: num6;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num1 {
     grid-area: num1;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num2 {
     grid-area: num2;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num3 {
     grid-area: num3;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .num0 {
     grid-area: num0;
-    padding-left: 5%;
-    padding-right: 5%;
 }
