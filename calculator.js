@@ -4,7 +4,7 @@ const subtraction = (a, b) => {return a - b;};
 
 const multiplication = (a, b) => {return a * b;};
 
-const divison = (a, b) => {return a / b;};
+const division = (a, b) => {return a / b;};
 
 const power = (a, b) => {return Math.pow(a, b)};
 
@@ -28,8 +28,14 @@ const operate = (operator, a, b) => {
         case '*':
             multiplication(a, b);
             break;
-        case '/':
-            divison(a, b);
+        case '÷':
+            division(a, b);
+            break;
+        case 'x<sup>n</sup>':
+            power(a, b);
+            break;
+        case 'n!':
+            factorial(a);
             break;
         default:
             return "SYNTAX ERROR";
