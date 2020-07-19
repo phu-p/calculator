@@ -61,6 +61,12 @@ sup {
     scrollbar-width: none;  /* Firefox */
 }
 
+button {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+}
+
 .button {
     justify-self: center;
     align-self: center;
