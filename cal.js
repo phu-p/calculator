@@ -42,11 +42,14 @@ const operate = (operator, a, b) => {
     };
 };
 
-let test = element => console.log(element);
-
 let calculator = document.getElementsByClassName("calculator");
+let screen = document.getElementsByClassName("screen");
 let button = document.getElementsByClassName("button");
 
+let displayValue = (element) => {
+    screen[0].textContent += element.target.value;
+};
+
 for(let i = 0; i < button.length; ++i) {
-    button[i].addEventListener("click", test);
+    button[i].addEventListener("click", displayValue);
 }
