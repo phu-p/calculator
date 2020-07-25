@@ -47,7 +47,24 @@ let screen = document.getElementsByClassName("screen");
 let button = document.getElementsByClassName("button");
 
 let displayValue = (element) => {
-    screen[0].textContent += element.target.value;
+    let userInput = element.target.value;
+    switch(userInput) {
+        case "delete":
+            ""
+            break;
+        case "clear":
+            ""
+            break;
+        case "x^n":
+            ""
+            break;
+        case "n!":
+            break;
+        case "=":
+            break;
+        default:
+            screen[0].textContent += userInput;
+    };
 };
 
 for(let i = 0; i < button.length; ++i) {
