@@ -50,13 +50,10 @@ let displayValue = (element) => {
     let userInput = element.target.value;
     switch(userInput) {
         case "delete":
-            ""
             break;
         case "clear":
-            ""
             break;
         case "x^n":
-            ""
             break;
         case "n!":
             break;
@@ -64,8 +61,11 @@ let displayValue = (element) => {
             break;
         default:
             screen[0].textContent += userInput;
+            storeInput(userInput);
     };
 };
+
+let storeInput = (input) => {storingValues.push(input);};
 
 for(let i = 0; i < button.length; ++i) {
     button[i].addEventListener("click", displayValue);
