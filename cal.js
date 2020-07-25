@@ -8,7 +8,7 @@ const division = (a, b) => {return a / b;};
 
 const power = (a, b) => {return Math.pow(a, b)};
 
-function factorial(number) {
+const factorial = (number) => {
 	var accumulator = 1;
 	var limit = 0
 	for (var i = number; i > limit; --i) {
@@ -31,7 +31,7 @@ const operate = (operator, a, b) => {
         case '÷':
             division(a, b);
             break;
-        case 'x<sup>n</sup>':
+        case 'x^n':
             power(a, b);
             break;
         case 'n!':
