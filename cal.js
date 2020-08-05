@@ -1,3 +1,12 @@
+let calculator = document.getElementsByClassName("calculator");
+let screen = document.getElementsByClassName("screen");
+let button = document.getElementsByClassName("button");
+let storeValues = [];
+let userInput = {
+    mathValues: "",
+    nonMathValues: "",
+};
+
 const addition = (a, b) => {return a + b;};
 
 const subtraction = (a, b) => {return a - b;};
@@ -50,20 +59,61 @@ let displayValue = (element) => {
     let userInput = element.target.value;
     switch(userInput) {
         case "delete":
+            storeInput(userInput);
             break;
         case "clear":
+            storeInput(userInput);
             break;
         case "x^n":
+            storeInput(userInput);
+            // checkOperators();
             break;
         case "n!":
+            storeInput(userInput);
+            // checkOperators();
             break;
         case "=":
+            storeInput(userInput);
             break;
         default:
             screen[0].textContent += userInput;
             storeInput(userInput);
+            // checkOperators();
     };
 };
+
+let storeInput = (input) => {
+    switch(input) {
+        case "delete":
+            //need a function that delete
+            break;
+        case "clear":
+            //need a function that clear
+            break;
+        case "=":
+            holdValues = userInput.mathValues.split(" ");
+            break;
+        case "+":
+            userInput.mathValues += " + ";
+            holdValues = userInput.mathValues.split(" ");
+            break;
+        case "-":
+            userInput.mathValues += " - ";
+            holdValues = userInput.mathValues.split(" ");
+            break;
+        case "÷":
+            userInput.mathValues += " ÷ ";
+            holdValues = userInput.mathValues.split(" ");
+            break;
+        case "*":
+            userInput.mathValues += " * ";
+            holdValues = userInput.mathValues.split(" ");
+            break;
+        default:
+            userInput.mathValues += input;
+            break;
+        };
+    };
 
 let storeInput = (input) => {storingValues.push(input);};
 
