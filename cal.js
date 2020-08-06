@@ -65,10 +65,12 @@ let displayValue = (element) => {
             storeInput(userInput);
             break;
         case "x^n":
+            screen[0].textContent += "^";
             storeInput(userInput);
             // checkOperators();
             break;
         case "n!":
+            screen[0].textContent += "!";
             storeInput(userInput);
             // checkOperators();
             break;
@@ -91,23 +93,31 @@ let storeInput = (input) => {
             //need a function that clear
             break;
         case "=":
-            holdValues = userInput.mathValues.split(" ");
+            storeValues = userInput.mathValues.split(" ");
+            break;
+        case "x^n":
+            userInput.mathValues += " ^ ";
+            storeValues = userInput.mathValues.split(" ");
+            break;
+        case "n!":
+            userInput.mathValues += " ! ";
+            storeValues = userInput.mathValues.split(" ");
             break;
         case "+":
             userInput.mathValues += " + ";
-            holdValues = userInput.mathValues.split(" ");
+            storeValues = userInput.mathValues.split(" ");
             break;
         case "-":
             userInput.mathValues += " - ";
-            holdValues = userInput.mathValues.split(" ");
+            storeValues = userInput.mathValues.split(" ");
             break;
         case "÷":
             userInput.mathValues += " ÷ ";
-            holdValues = userInput.mathValues.split(" ");
+            storeValues = userInput.mathValues.split(" ");
             break;
         case "*":
             userInput.mathValues += " * ";
-            holdValues = userInput.mathValues.split(" ");
+            storeValues = userInput.mathValues.split(" ");
             break;
         default:
             userInput.mathValues += input;
