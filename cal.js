@@ -18,6 +18,7 @@ const division = (a, b) => {return a / b;};
 const power = (a, b) => {return Math.pow(a, b)};
 
 const factorial = (number) => {
+    //need to take in account of the exclamation mark
 	var accumulator = 1;
 	var limit = 0
 	for (var i = number; i > limit; --i) {
@@ -81,6 +82,7 @@ let displayValue = (element) => {
     };
 };
 
+//need to include special operators in the future
 let storeInput = (input) => {
     switch(input) {
         case "delete":
@@ -121,8 +123,6 @@ let storeInput = (input) => {
             break;
         };
     };
-
-let storeInput = (input) => {storingValues.push(input);};
 
 for(let i = 0; i < button.length; ++i) {
     button[i].addEventListener("click", displayValue);
