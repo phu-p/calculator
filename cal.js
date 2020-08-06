@@ -51,9 +51,6 @@ const operate = (operator, a, b) => {
     };
 };
 
-let calculator = document.getElementsByClassName("calculator");
-let screen = document.getElementsByClassName("screen");
-let button = document.getElementsByClassName("button");
 
 let displayValue = (element) => {
     let userInput = element.target.value;
