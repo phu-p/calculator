@@ -10,9 +10,8 @@ let userInput = {
 let emptyArray = [];
 let lengthOfEmptyArray = emptyArray.length;
 
-//send the result to userInput.solution, (1) then make sure to delete userInput.mathOperator, and (2) make the userInput.solution to become
-//userInput.num1
-//note i need to join two indexes together before do the math--maybe create a function join.
+//send the result to userInput.solution, and (2) make the userInput.solution to become userInput.num1
+//then the next time the user sends in another number, the calculator will send the values into userInput.num2
 const operate = (operator, a, b) => {
     const addition = (num1, num2) => {return num1 + num2;};
 
@@ -29,7 +28,9 @@ const operate = (operator, a, b) => {
         division: division(a, b),
         default: "Syntax Error"
     };
-    return operators[operator] || operators.default;
+    let solution = operators[operator];
+    let storedSolution = userInput.solution.push(solution);
+    return storedSolution || console.log(operators.default);
 };
 
 const sendNums = value => {
@@ -40,7 +41,6 @@ const sendNums = value => {
     };
 };
 
-//i may not need the if condition because i want to use shift() to do the first operation
 const sendOperator = value => {
     if(userInput.mathOperator.length % 2 === 0) {
         userInput.mathOperator = [];
@@ -73,7 +73,7 @@ const storeInputs = elementValue => {
     }
 };
 
-const joinIndex = () => {
+const joinNumbers = () => {
     let num1Joined = userInput.num1.join("");
     let number1 = Number(num1Joined);
     let num2Joined = userInput.num2.join("");
@@ -82,10 +82,23 @@ const joinIndex = () => {
     operate(operator, number1, number2);
 };
 
-//put this function in turnOn()
+//IMPORTANT: current issue is  when the solution pushes to num1, the next operation, num1 is fine , but num2 is always 0-- creating the same solution
+const checkSolution = () => {
+    if (userInput.solution.length !== lengthOfEmptyArray) {
+        //reset num1 and num2
+        userInput.num1 = [];
+        userInput.num2 = [];
+        //push the solution into num1 to let the calculator ready to accept the next number
+        let solution = userInput.solution;
+        userInput.num1.push(solution);
+        userInput.solution = [];
+    };
+};
+
 const checkConditions = () => {
     if(userInput.num1.length !== lengthOfEmptyArray && userInput.num2.length !== lengthOfEmptyArray && userInput.mathOperator.length !== lengthOfEmptyArray) {
-        joinIndex();
+        checkSolution();
+        joinNumbers();
     }
 };
 
