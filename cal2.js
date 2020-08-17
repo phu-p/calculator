@@ -73,16 +73,18 @@ const storeInputs = elementValue => {
     }
 };
 
-//a function (B) that joins two indexes (num1 and num2) then the 3 userinput into operate()
 const joinIndex = () => {
-    //join num1's numbers and num2's numbers, and store each of them into an individual variable. Make them become numbers
-    //convert mathOperator into a string
+    let num1Joined = userInput.num1.join("");
+    let number1 = Number(num1Joined);
+    let num2Joined = userInput.num2.join("");
+    let number2 = Number(num2Joined);
+    let operator = userInput.mathOperator.shift();
+    operate(operator, number1, number2);
 };
 
 //put this function in turnOn()
 const checkConditions = () => {
     if(userInput.num1.length !== lengthOfEmptyArray && userInput.num2.length !== lengthOfEmptyArray && userInput.mathOperator.length !== lengthOfEmptyArray) {
-        //then send them to function (B) to join indexes
         joinIndex();
     }
 };
@@ -92,8 +94,7 @@ const turnOn = element => {
     screenText.textContent = textButton;
     let buttonValue = element.target.value;
     storeInputs(buttonValue);
-    //checkConditions()
-
+    checkConditions()
 };
 
 buttons.forEach(element => element.addEventListener("click", turnOn));
