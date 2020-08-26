@@ -25,8 +25,13 @@ const operate = (operator, a, b) => {
 
     const multiplication = (num1, num2) => {return num1 * num2;};
 
-    //take in account of num2 as 0
-    const division = (num1, num2) => {return num1 / num2;};
+    const division = (num1, num2) => {
+        if(num2 === 0) {
+            return screenText.textContent = "Undefined";
+        } else {
+            return num1 / num2;
+        }
+    };
     
     const operators = {
         addition: addition(a, b),
