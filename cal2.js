@@ -104,6 +104,10 @@ const finishCalculation = () => {
 
 const storeInputs = elementValue => {
     switch(elementValue) {
+        case "clear":
+            resetUserInput();
+            screenText.textContent = "";
+            break;
         case "addition":
             sendOperator(elementValue);
             break;
