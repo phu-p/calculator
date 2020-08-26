@@ -12,7 +12,6 @@ const resetUserInput = () => {
     userInput.num1 = [];
     userInput.num2 = [];
     userInput.mathOperator = [];
-    userInput.solution = [];
 };
 
 const displaySolution = () => {
@@ -99,6 +98,7 @@ const finishCalculation = () => {
         displaySolution();
     } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
         resetUserInput();
+        userInput.solution = [];
         return screenText.textContent = "Syntax Error";
     }
 };
@@ -107,6 +107,7 @@ const storeInputs = elementValue => {
     switch(elementValue) {
         case "clear":
             resetUserInput();
+            userInput.solution = [];
             screenText.textContent = "";
             break;
         case "addition":
