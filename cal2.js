@@ -74,17 +74,19 @@ const storeInputs = elementValue => {
 };
 
 const joinNumbers = () => {
-    let num1Joined = userInput.num1.join("");
-    let number1 = Number(num1Joined);
-    let num2Joined = userInput.num2.join("");
-    let number2 = Number(num2Joined);
-    let operator = userInput.mathOperator.shift();
-    operate(operator, number1, number2);
+    if(userInput.mathOperator.length === lengthOfTwo){
+        let num1Joined = userInput.num1.join("");
+        let number1 = Number(num1Joined);
+        let num2Joined = userInput.num2.join("");
+        let number2 = Number(num2Joined);
+        let operator = userInput.mathOperator.shift();
+        operate(operator, number1, number2);
+    }
 };
 
 //IMPORTANT: current issue is  when the solution pushes to num1, the next operation, num1 is fine , but num2 is always 0-- creating the same solution
 const checkSolution = () => {
-    if (userInput.solution.length !== lengthOfEmptyArray) {
+    if(userInput.solution.length !== lengthOfEmptyArray) {
         //reset num1 and num2
         userInput.num1 = [];
         userInput.num2 = [];
