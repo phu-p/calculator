@@ -12,6 +12,7 @@ const resetUserInput = () => {
     userInput.num1 = [];
     userInput.num2 = [];
     userInput.mathOperator = [];
+    userInput.solution = [];
 };
 
 const displaySolution = () => {
