@@ -9,6 +9,8 @@ let userInput = {
 };
 let emptyArray = [];
 let lengthOfEmptyArray = emptyArray.length;
+let twoIndex = ["index1", "index2"];
+let lengthOfTwo = twoIndex.length;
 
 //send the result to userInput.solution, and (2) make the userInput.solution to become userInput.num1
 //then the next time the user sends in another number, the calculator will send the values into userInput.num2
