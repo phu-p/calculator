@@ -8,6 +8,16 @@ let userInput = {
     solution: []
 };
 
+const resetUserInput = () => {
+    userInput.num1 = [];
+    userInput.num2 = [];
+    userInput.mathOperator = [];
+};
+
+const displaySolution = () => {
+    screenText.textContent = userInput.solution;
+};
+
 const operate = (operator, a, b) => {
     const addition = (num1, num2) => {return num1 + num2;};
 
@@ -15,6 +25,7 @@ const operate = (operator, a, b) => {
 
     const multiplication = (num1, num2) => {return num1 * num2;};
 
+    //take in account of num2 as 0
     const division = (num1, num2) => {return num1 / num2;};
     
     const operators = {
@@ -55,10 +66,8 @@ const joinNumbers = () => {
 
 const checkSolution = () => {
     if(userInput.solution.length === 1) {
-        //reset num1 and num2
         userInput.num1 = [];
         userInput.num2 = [];
-        //push the solution into num1 to let the calculator ready to accept the next number
         let solution = userInput.solution;
         userInput.num1.push(solution);
         userInput.solution = [];
@@ -69,6 +78,19 @@ const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
         joinNumbers();
+    }
+};
+
+const finishCalculation = () => {
+    if(userInput.mathOperator.length === 2){
+        let num1Joined = userInput.num1.join("");
+        let number1 = Number(num1Joined);
+        let num2Joined = userInput.num2.join("");
+        let number2 = Number(num2Joined);
+        let operator = userInput.mathOperator.shift();
+        operate(operator, number1, number2);
+        resetUserInput();
+        displaySolution();
     }
 };
 
@@ -88,6 +110,7 @@ const storeInputs = elementValue => {
             break;
         case "equal":
             sendOperator(elementValue);
+            finishCalculation();
             break;
         default:
             sendNums(elementValue);
