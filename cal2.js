@@ -7,13 +7,7 @@ let userInput = {
     num2: [],
     solution: []
 };
-let emptyArray = [];
-let lengthOfEmptyArray = emptyArray.length;
-let twoIndex = ["index1", "index2"];
-let lengthOfTwo = twoIndex.length;
 
-//send the result to userInput.solution, and (2) make the userInput.solution to become userInput.num1
-//then the next time the user sends in another number, the calculator will send the values into userInput.num2
 const operate = (operator, a, b) => {
     const addition = (num1, num2) => {return num1 + num2;};
 
@@ -36,7 +30,7 @@ const operate = (operator, a, b) => {
 };
 
 const sendNums = value => {
-    if(userInput.mathOperator.length === lengthOfEmptyArray) {
+    if(userInput.mathOperator.length === 0) {
         userInput.num1.push(value);
     } else {
         userInput.num2.push(value);
@@ -44,13 +38,10 @@ const sendNums = value => {
 };
 
 const sendOperator = value => {
-    if(userInput.mathOperator.length % 2 === 0) {
-        userInput.mathOperator = [];
-        userInput.mathOperator.push(value);
-    } else {
-        userInput.mathOperator.push(value);
-    }
+    userInput.mathOperator.push(value);
 };
+
+
 
 const storeInputs = elementValue => {
     switch(elementValue) {
@@ -76,19 +67,19 @@ const storeInputs = elementValue => {
 };
 
 const joinNumbers = () => {
-    if(userInput.mathOperator.length === lengthOfTwo){
+    if(userInput.mathOperator.length === 2){
         let num1Joined = userInput.num1.join("");
         let number1 = Number(num1Joined);
         let num2Joined = userInput.num2.join("");
         let number2 = Number(num2Joined);
         let operator = userInput.mathOperator.shift();
         operate(operator, number1, number2);
+        checkConditions();
     }
 };
 
-//IMPORTANT: current issue is  when the solution pushes to num1, the next operation, num1 is fine , but num2 is always 0-- creating the same solution
 const checkSolution = () => {
-    if(userInput.solution.length !== lengthOfEmptyArray) {
+    if(userInput.solution.length === 1) {
         //reset num1 and num2
         userInput.num1 = [];
         userInput.num2 = [];
@@ -100,7 +91,7 @@ const checkSolution = () => {
 };
 
 const checkConditions = () => {
-    if(userInput.num1.length !== lengthOfEmptyArray && userInput.num2.length !== lengthOfEmptyArray && userInput.mathOperator.length !== lengthOfEmptyArray) {
+    if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
         joinNumbers();
     }
@@ -111,7 +102,7 @@ const turnOn = element => {
     screenText.textContent = textButton;
     let buttonValue = element.target.value;
     storeInputs(buttonValue);
-    checkConditions()
+    checkConditions();
 };
 
 buttons.forEach(element => element.addEventListener("click", turnOn));
