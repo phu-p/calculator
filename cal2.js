@@ -96,6 +96,9 @@ const finishCalculation = () => {
         operate(operator, number1, number2);
         resetUserInput();
         displaySolution();
+    } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
+        resetUserInput();
+        return screenText.textContent = "Syntax Error";
     }
 };
 
