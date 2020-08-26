@@ -41,31 +41,6 @@ const sendOperator = value => {
     userInput.mathOperator.push(value);
 };
 
-
-
-const storeInputs = elementValue => {
-    switch(elementValue) {
-        case "addition":
-            sendOperator(elementValue);
-            break;
-        case "subtraction":
-            sendOperator(elementValue);
-            break;
-        case "division":
-            sendOperator(elementValue);
-            break;
-        case "multiplication":
-            sendOperator(elementValue);
-            break;
-        case "equal":
-            sendOperator(elementValue);
-            break;
-        default:
-            sendNums(elementValue);
-            break;
-    }
-};
-
 const joinNumbers = () => {
     if(userInput.mathOperator.length === 2){
         let num1Joined = userInput.num1.join("");
@@ -94,6 +69,29 @@ const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
         joinNumbers();
+    }
+};
+
+const storeInputs = elementValue => {
+    switch(elementValue) {
+        case "addition":
+            sendOperator(elementValue);
+            break;
+        case "subtraction":
+            sendOperator(elementValue);
+            break;
+        case "division":
+            sendOperator(elementValue);
+            break;
+        case "multiplication":
+            sendOperator(elementValue);
+            break;
+        case "equal":
+            sendOperator(elementValue);
+            break;
+        default:
+            sendNums(elementValue);
+            break;
     }
 };
 
