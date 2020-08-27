@@ -15,7 +15,11 @@ const resetUserInput = () => {
 };
 
 const displaySolution = () => {
-    screenText.textContent = userInput.solution;
+    if(userInput.solution.length !== 0) {
+        screenText.textContent = userInput.solution;
+    } else if(userInput.num1.length !== 0) {
+        screenText.textContent = userInput.num1;
+    };
 };
 
 const operate = (operator, a, b) => {
@@ -95,7 +99,6 @@ const finishCalculation = () => {
         let operator = userInput.mathOperator.shift();
         operate(operator, number1, number2);
         resetUserInput();
-        displaySolution();
     } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
         resetUserInput();
         userInput.solution = [];
@@ -125,6 +128,8 @@ const storeInputs = elementValue => {
         case "equal":
             sendOperator(elementValue);
             finishCalculation();
+            checkSolution();
+            displaySolution();
             break;
         default:
             sendNums(elementValue);
