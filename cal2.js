@@ -78,6 +78,7 @@ const joinNumbers = () => {
     }
 };
 
+//move this to below checkConditions
 const checkSolution = () => {
     if(userInput.solution.length === 1) {
         userInput.num1 = [];
@@ -88,6 +89,7 @@ const checkSolution = () => {
     };
 };
 
+//move this to top of JoinNumbers
 const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
@@ -142,10 +144,18 @@ const storeInputs = elementValue => {
     }
 };
 
+const displayValues = text => {
+    if(text === "=" || text === "÷" || text === "*" || text === "-" || text === "+" ){
+        screenText.textContent = text + " ";
+    } else {
+        screenText.textContent += text;
+    };
+};
+
 const turnOn = element => {
     let textButton = element.target.textContent;
-    screenText.textContent = textButton;
     let buttonValue = element.target.value;
+    displayValues(textButton);
     storeInputs(buttonValue);
     checkConditions();
 };
