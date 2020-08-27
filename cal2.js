@@ -22,6 +22,11 @@ const displaySolution = () => {
     };
 };
 
+const roundUpSolution = num => {
+    let roundUpNum = Math.round(num * 100) / 100;
+    return roundUpNum;
+};
+
 const operate = (operator, a, b) => {
     const addition = (num1, num2) => {return num1 + num2;};
 
@@ -45,7 +50,7 @@ const operate = (operator, a, b) => {
         default: "Syntax Error"
     };
     let solution = operators[operator];
-    let storedSolution = userInput.solution.push(solution);
+    let storedSolution = userInput.solution.push(roundUpSolution(solution));
     return storedSolution || console.log(operators.default);
 };
 
