@@ -15,7 +15,16 @@ const resetUserInput = () => {
 };
 
 const displaySolution = () => {
-    screenText.textContent = userInput.solution;
+    if(userInput.solution.length !== 0) {
+        screenText.textContent = userInput.solution;
+    } else if(userInput.num1.length !== 0) {
+        screenText.textContent = userInput.num1;
+    };
+};
+
+const roundUpSolution = num => {
+    let roundUpNum = Math.round(num * 100) / 100;
+    return roundUpNum;
 };
 
 const operate = (operator, a, b) => {
@@ -41,7 +50,7 @@ const operate = (operator, a, b) => {
         default: "Syntax Error"
     };
     let solution = operators[operator];
-    let storedSolution = userInput.solution.push(solution);
+    let storedSolution = userInput.solution.push(roundUpSolution(solution));
     return storedSolution || console.log(operators.default);
 };
 
@@ -69,6 +78,7 @@ const joinNumbers = () => {
     }
 };
 
+//move this to below checkConditions
 const checkSolution = () => {
     if(userInput.solution.length === 1) {
         userInput.num1 = [];
@@ -79,6 +89,7 @@ const checkSolution = () => {
     };
 };
 
+//move this to top of JoinNumbers
 const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
@@ -95,12 +106,20 @@ const finishCalculation = () => {
         let operator = userInput.mathOperator.shift();
         operate(operator, number1, number2);
         resetUserInput();
-        displaySolution();
+    } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
+        resetUserInput();
+        userInput.solution = [];
+        return screenText.textContent = "Syntax Error";
     }
 };
 
 const storeInputs = elementValue => {
     switch(elementValue) {
+        case "clear":
+            resetUserInput();
+            userInput.solution = [];
+            screenText.textContent = "";
+            break;
         case "addition":
             sendOperator(elementValue);
             break;
@@ -116,6 +135,8 @@ const storeInputs = elementValue => {
         case "equal":
             sendOperator(elementValue);
             finishCalculation();
+            checkSolution();
+            displaySolution();
             break;
         default:
             sendNums(elementValue);
@@ -123,10 +144,18 @@ const storeInputs = elementValue => {
     }
 };
 
+const displayValues = text => {
+    if(text === "=" || text === "÷" || text === "*" || text === "-" || text === "+" ){
+        screenText.textContent = text + " ";
+    } else {
+        screenText.textContent += text;
+    };
+};
+
 const turnOn = element => {
     let textButton = element.target.textContent;
-    screenText.textContent = textButton;
     let buttonValue = element.target.value;
+    displayValues(textButton);
     storeInputs(buttonValue);
     checkConditions();
 };
