@@ -41,12 +41,28 @@ const operate = (operator, a, b) => {
             return num1 / num2;
         }
     };
+
+    const factorial = number => {
+        var accumulator = 1;
+        var limit = 0
+        for (var i = number; i > limit; --i) {
+            accumulator *= i;
+        };
+        return accumulator;
+    };
     
+    const power = (a, b) => {
+        const mathPower = Math.pow(a, b);
+        return mathPower;
+    };
+
     const operators = {
         addition: addition(a, b),
         subtraction: subtraction(a, b),
         multiplication: multiplication(a, b),
         division: division(a, b),
+        power: power(a, b),
+        factorial: factorial(a),
         default: "Syntax Error"
     };
     let solution = operators[operator];
@@ -78,7 +94,6 @@ const joinNumbers = () => {
     }
 };
 
-//move this to below checkConditions
 const checkSolution = () => {
     if(userInput.solution.length === 1) {
         userInput.num1 = [];
@@ -89,7 +104,6 @@ const checkSolution = () => {
     };
 };
 
-//move this to top of JoinNumbers
 const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
