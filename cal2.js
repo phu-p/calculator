@@ -112,28 +112,33 @@ const checkConditions = () => {
 };
 
 const finishCalculation = () => {
-    if(userInput.mathOperator.length === 2){
-        let num1Joined = userInput.num1.join("");
-        let number1 = Number(num1Joined);
-        let num2Joined = userInput.num2.join("");
-        let number2 = Number(num2Joined);
-        let operator = userInput.mathOperator.shift();
-        operate(operator, number1, number2);
+    let num1Joined = "";
+    let num2Joined = "";
+    let operator = "";
+    let num1 = "";
+    let num2 = "";
+    if(userInput.mathOperator.length === 2) {
+        num1Joined = userInput.num1.join("");
+        num1 = Number(num1Joined);
+        num2Joined = userInput.num2.join("");
+        num2 = Number(num2Joined);
+        operator = userInput.mathOperator.shift();
+        operate(operator, num1, num2);
         resetUserInput();
     } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
         resetUserInput();
         userInput.solution = [];
         return screenText.textContent = "Syntax Error";
-    }
+    };
 };
 
 const storeInputs = elementValue => {
     switch(elementValue) {
-        case "clear":
-            resetUserInput();
-            userInput.solution = [];
-            screenText.textContent = "";
-            break;
+        // case "clear":
+        //     resetUserInput();
+        //     userInput.solution = [];
+        //     screenText.textContent = "";
+        //     break;
         case "addition":
             sendOperator(elementValue);
             break;
@@ -144,6 +149,9 @@ const storeInputs = elementValue => {
             sendOperator(elementValue);
             break;
         case "multiplication":
+            sendOperator(elementValue);
+            break;
+        case "power":
             sendOperator(elementValue);
             break;
         case "equal":
@@ -158,10 +166,15 @@ const storeInputs = elementValue => {
     }
 };
 
-const displayValues = text => {
-    if(text === "=" || text === "÷" || text === "*" || text === "-" || text === "+" ){
-        screenText.textContent = text + " ";
-    } else {
+const displayValues = (text, value) => {
+    let numJoined = userInput.num1.join("");
+    if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
+        screenText.textContent = numJoined + " " + text + " ";
+    } else if(value === "clear") {
+        resetUserInput();
+        userInput.solution = [];
+        screenText.textContent = "";
+    }else {
         screenText.textContent += text;
     };
 };
@@ -169,9 +182,9 @@ const displayValues = text => {
 const turnOn = element => {
     let textButton = element.target.textContent;
     let buttonValue = element.target.value;
-    displayValues(textButton);
     storeInputs(buttonValue);
     checkConditions();
+    displayValues(textButton, buttonValue);
 };
 
 buttons.forEach(element => element.addEventListener("click", turnOn));
