@@ -134,11 +134,6 @@ const finishCalculation = () => {
 
 const storeInputs = elementValue => {
     switch(elementValue) {
-        // case "clear":
-        //     resetUserInput();
-        //     userInput.solution = [];
-        //     screenText.textContent = "";
-        //     break;
         case "addition":
             sendOperator(elementValue);
             break;
