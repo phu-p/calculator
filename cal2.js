@@ -169,7 +169,7 @@ const displayValues = (text, value) => {
         resetUserInput();
         userInput.solution = [];
         screenText.textContent = "";
-    }else {
+    }else if(text !== "=") {
         screenText.textContent += text;
     };
 };
