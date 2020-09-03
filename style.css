@@ -21,16 +21,16 @@ sup {
     font-family: 'Righteous', cursive;
     display: grid;
     grid-template-columns: 5% repeat(4, auto) 5%;
-    grid-template-rows: 5% 30% repeat(5, auto);
+    grid-template-rows: 5% 20% repeat(5, auto);
     grid-template-areas:
                         ". empty empty empty empty ."
                         ". input input input input ."               
-                        ". clear delete power factorial ."
+                        ". clear delete power power ."
                         ". num7 num8 num9 division ."
                         ". num4 num5 num6 multiplication ."
                         ". num1 num2 num3 subtraction ."
                         ". num0 deci equal addition .";
-    height: 500px;
+    height: 400px;
     flex: 0 0 250px;
     border-radius: 15px;
     border: thick double #A9A9A9;
@@ -40,12 +40,15 @@ sup {
 
 .screen {
     grid-area: input;
-    font-size: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30px;
     background-color: rgb(22, 63, 61);
     border-radius: 8px;
     border: 1px solid black;
     width: 225px;
-    height: 150px;
+    height: 80px;
     text-overflow: clip;
     white-space: nowrap;
     overflow: auto;
@@ -109,6 +112,7 @@ button {
 
 .power {
     grid-area: power;
+    width: 100%;
 }
 
 .factorial {
