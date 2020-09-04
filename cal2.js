@@ -108,7 +108,11 @@ const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
         joinNumbers();
-    }
+    } else if((userInput.mathOperator.length === 2  && userInput.num1.length !== 0) || (userInput.mathOperator.length !== 0 && userInput.num2.length === 0)) {
+        resetUserInput();
+        userInput.solution = [];
+        return screenText.textContent = "Syntax Error";
+    };
 };
 
 const finishCalculation = () => {
