@@ -165,17 +165,19 @@ const storeInputs = elementValue => {
     }
 };
 
-const displayValues = (text, value) => {
+const displayValues = (text) => {
     let numJoined = userInput.num1.join("");
     if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
         screenText.textContent = numJoined + " " + text + " ";
-    } else if(value === "clear") {
+    } else if(text === "CLR") {
         resetUserInput();
         userInput.solution = [];
         screenText.textContent = "";
     }else if(text !== "=") {
         screenText.textContent += text;
-    };
+    } else if(text === ".") {
+        checkConditions();
+    }
 };
 
 const turnOn = element => {
