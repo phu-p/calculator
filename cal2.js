@@ -78,6 +78,17 @@ const sendNums = value => {
     };
 };
 
+const removeDecimals = () => {
+    let num1Decimals = userInput.num1.filter(value => value === ".");
+    let num2Decimals = userInput.num2.filter(value => value === ".");
+
+    if(num1Decimals.length > 1) {
+        userInput.num1.pop();
+    } else if(num2Decimals.length > 1) {
+        userInput.num2.pop();
+    }
+};
+
 const sendOperator = value => {
     userInput.mathOperator.push(value);
 };
@@ -161,22 +172,27 @@ const storeInputs = elementValue => {
             break;
         default:
             sendNums(elementValue);
+            removeDecimals();
             break;
     }
 };
 
 const displayValues = (text) => {
-    let numJoined = userInput.num1.join("");
-    if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
-        screenText.textContent = numJoined + " " + text + " ";
+    let num1Joined = userInput.num1.join("");
+    let num2Joined = userInput.num2.join("");
+
+    if(text === "." && userInput.num2.length === 0) {
+        screenText.textContent = num1Joined;
+    } else if(text === "." && userInput.num2.length !== 0) {
+        screenText.textContent = num1Joined + " " + text + " " + num2Joined;
     } else if(text === "CLR") {
         resetUserInput();
         userInput.solution = [];
         screenText.textContent = "";
     }else if(text !== "=") {
         screenText.textContent += text;
-    } else if(text === ".") {
-        checkConditions();
+    } else if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
+        screenText.textContent = num1Joined + " " + text + " ";
     }
 };
 
@@ -185,7 +201,7 @@ const turnOn = element => {
     let buttonValue = element.target.value;
     storeInputs(buttonValue);
     checkConditions();
-    displayValues(textButton, buttonValue);
+    displayValues(textButton);
 };
 
 buttons.forEach(element => element.addEventListener("click", turnOn));
