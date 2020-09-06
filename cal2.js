@@ -1,4 +1,3 @@
-//ignore extra credit objectives and special operators like factorial and exponent
 let buttons = document.querySelectorAll(".button");
 let screenText = document.getElementsByClassName("screen")[0];
 let userInput = {
@@ -17,6 +16,19 @@ const resetUserInput = () => {
     userInput.num1 = [];
     userInput.num2 = [];
     userInput.mathOperator = [];
+};
+
+const deleteInput = () => {
+    let num1Joined = userInput.num1.join("");
+    let num2Joined = userInput.num2.join("");
+
+    if(userInput.num1.length !== 0) {
+        userInput.num1.pop();
+        screenText.textContent = num1Joined;
+    } else if(userInput.num2.length !== 0) {
+        userInput.num2.pop();
+        screenText.textContent = num2Joined;
+    }
 };
 
 const displaySolution = () => {
@@ -196,7 +208,9 @@ const displayValues = (text) => {
     } else if(text === "CLR") {
         resetAllUserInput();
         screenText.textContent = "";
-    }else if(text !== "=") {
+    } else if(text === "DEL") {
+        deleteInput();
+    } else if(text !== "=") {
         screenText.textContent += text;
     };
 };
