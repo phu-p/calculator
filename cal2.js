@@ -181,9 +181,7 @@ const displayValues = (text) => {
     let num1Joined = userInput.num1.join("");
     let num2Joined = userInput.num2.join("");
 
-    if(text === "." && userInput.num2.length === 0) {
-        screenText.textContent = num1Joined;
-    } else if(text === "." && userInput.num2.length !== 0) {
+    if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
         screenText.textContent = num1Joined + " " + text + " " + num2Joined;
     } else if(text === "CLR") {
         resetUserInput();
@@ -191,9 +189,7 @@ const displayValues = (text) => {
         screenText.textContent = "";
     }else if(text !== "=") {
         screenText.textContent += text;
-    } else if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
-        screenText.textContent = num1Joined + " " + text + " ";
-    }
+    };
 };
 
 const turnOn = element => {
