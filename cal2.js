@@ -1,4 +1,3 @@
-//ignore extra credit objectives and special operators like factorial and exponent
 let buttons = document.querySelectorAll(".button");
 let screenText = document.getElementsByClassName("screen")[0];
 let userInput = {
@@ -8,14 +7,37 @@ let userInput = {
     solution: []
 };
 
+const resetAllUserInput = () => {
+    resetUserInput();
+    userInput.solution = [];
+};
+
 const resetUserInput = () => {
     userInput.num1 = [];
     userInput.num2 = [];
     userInput.mathOperator = [];
 };
 
+const deleteInput = () => {
+    let num1Joined = userInput.num1.join("");
+    let num2Joined = userInput.num2.join("");
+
+    if(userInput.num1.length !== 0) {
+        userInput.num1.pop();
+        screenText.textContent = num1Joined;
+    } else if(userInput.num2.length !== 0) {
+        userInput.num2.pop();
+        screenText.textContent = num2Joined;
+    }
+};
+
 const displaySolution = () => {
-    if(userInput.solution.length !== 0) {
+    let solution = userInput.num1.join("");
+
+    if(solution === "NaN") {
+        resetAllUserInput();
+        screenText.textContent = "Undefined";
+    } else if(userInput.solution.length !== 0) {
         screenText.textContent = userInput.solution;
     } else if(userInput.num1.length !== 0) {
         screenText.textContent = userInput.num1;
@@ -36,7 +58,9 @@ const operate = (operator, a, b) => {
 
     const division = (num1, num2) => {
         if(num2 === 0) {
-            return screenText.textContent = "Undefined";
+            resetUserInput();
+            let errorMessage = userInput.num1.push("Undefined");
+            return errorMessage;
         } else {
             return num1 / num2;
         }
@@ -78,6 +102,17 @@ const sendNums = value => {
     };
 };
 
+const removeDecimals = () => {
+    let num1Decimals = userInput.num1.filter(value => value === ".");
+    let num2Decimals = userInput.num2.filter(value => value === ".");
+
+    if(num1Decimals.length > 1) {
+        userInput.num1.pop();
+    } else if(num2Decimals.length > 1) {
+        userInput.num2.pop();
+    }
+};
+
 const sendOperator = value => {
     userInput.mathOperator.push(value);
 };
@@ -108,7 +143,10 @@ const checkConditions = () => {
     if(userInput.num1.length !== 0 && userInput.num2.length !== 0 && userInput.mathOperator.length !== 0) {
         checkSolution();
         joinNumbers();
-    }
+    } else if((userInput.mathOperator.length >= 2  && userInput.num1.length !== 0) || (userInput.mathOperator.length >= 2 && userInput.num2.length === 0)) {
+        resetAllUserInput();
+        screenText.textContent = "Syntax Error";
+    };
 };
 
 const finishCalculation = () => {
@@ -126,8 +164,7 @@ const finishCalculation = () => {
         operate(operator, num1, num2);
         resetUserInput();
     } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
-        resetUserInput();
-        userInput.solution = [];
+        resetAllUserInput();
         return screenText.textContent = "Syntax Error";
     };
 };
@@ -157,19 +194,23 @@ const storeInputs = elementValue => {
             break;
         default:
             sendNums(elementValue);
+            removeDecimals();
             break;
     }
 };
 
-const displayValues = (text, value) => {
-    let numJoined = userInput.num1.join("");
+const displayValues = (text) => {
+    let num1Joined = userInput.num1.join("");
+    let num2Joined = userInput.num2.join("");
+
     if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
-        screenText.textContent = numJoined + " " + text + " ";
-    } else if(value === "clear") {
-        resetUserInput();
-        userInput.solution = [];
+        screenText.textContent = num1Joined + " " + text + " " + num2Joined;
+    } else if(text === "CLR") {
+        resetAllUserInput();
         screenText.textContent = "";
-    }else if(text !== "=") {
+    } else if(text === "DEL") {
+        deleteInput();
+    } else if(text !== "=") {
         screenText.textContent += text;
     };
 };
@@ -179,7 +220,7 @@ const turnOn = element => {
     let buttonValue = element.target.value;
     storeInputs(buttonValue);
     checkConditions();
-    displayValues(textButton, buttonValue);
+    displayValues(textButton);
 };
 
 buttons.forEach(element => element.addEventListener("click", turnOn));
