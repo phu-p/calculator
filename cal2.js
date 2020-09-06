@@ -65,15 +65,6 @@ const operate = (operator, a, b) => {
             return num1 / num2;
         }
     };
-
-    const factorial = number => {
-        var accumulator = 1;
-        var limit = 0
-        for (var i = number; i > limit; --i) {
-            accumulator *= i;
-        };
-        return accumulator;
-    };
     
     const power = (a, b) => {
         const mathPower = Math.pow(a, b);
