@@ -8,6 +8,11 @@ let userInput = {
     solution: []
 };
 
+const resetAllUserInput = () => {
+    resetUserInput();
+    userInput.solution = [];
+};
+
 const resetUserInput = () => {
     userInput.num1 = [];
     userInput.num2 = [];
@@ -18,8 +23,7 @@ const displaySolution = () => {
     let solution = userInput.num1.join("");
 
     if(solution === "NaN") {
-        resetUserInput();
-        userInput.solution = [];
+        resetAllUserInput();
         screenText.textContent = "Undefined";
     } else if(userInput.solution.length !== 0) {
         screenText.textContent = userInput.solution;
@@ -128,8 +132,7 @@ const checkConditions = () => {
         checkSolution();
         joinNumbers();
     } else if((userInput.mathOperator.length >= 2  && userInput.num1.length !== 0) || (userInput.mathOperator.length >= 2 && userInput.num2.length === 0)) {
-        resetUserInput();
-        userInput.solution = [];
+        resetAllUserInput();
         screenText.textContent = "Syntax Error";
     };
 };
@@ -149,8 +152,7 @@ const finishCalculation = () => {
         operate(operator, num1, num2);
         resetUserInput();
     } else if(userInput.num1.length === 0 || userInput.num2.length === 0) {
-        resetUserInput();
-        userInput.solution = [];
+        resetAllUserInput();
         return screenText.textContent = "Syntax Error";
     };
 };
@@ -192,8 +194,7 @@ const displayValues = (text) => {
     if(text === "+" || text === "-" || text === "*" || text === "÷" || text === "^") {
         screenText.textContent = num1Joined + " " + text + " " + num2Joined;
     } else if(text === "CLR") {
-        resetUserInput();
-        userInput.solution = [];
+        resetAllUserInput();
         screenText.textContent = "";
     }else if(text !== "=") {
         screenText.textContent += text;
