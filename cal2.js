@@ -15,7 +15,13 @@ const resetUserInput = () => {
 };
 
 const displaySolution = () => {
-    if(userInput.solution.length !== 0) {
+    let solution = userInput.num1.join("");
+
+    if(solution === "NaN") {
+        resetUserInput();
+        userInput.solution = [];
+        screenText.textContent = "Undefined";
+    } else if(userInput.solution.length !== 0) {
         screenText.textContent = userInput.solution;
     } else if(userInput.num1.length !== 0) {
         screenText.textContent = userInput.num1;
@@ -36,7 +42,9 @@ const operate = (operator, a, b) => {
 
     const division = (num1, num2) => {
         if(num2 === 0) {
-            return screenText.textContent = "Undefined";
+            resetUserInput();
+            let errorMessage = userInput.num1.push("Undefined");
+            return errorMessage;
         } else {
             return num1 / num2;
         }
