@@ -77,7 +77,6 @@ const operate = (operator, a, b) => {
         multiplication: multiplication(a, b),
         division: division(a, b),
         power: power(a, b),
-        factorial: factorial(a),
         default: "Syntax Error"
     };
     let solution = operators[operator];
