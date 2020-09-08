@@ -219,4 +219,8 @@ const turnOn = element => {
     displayValues(textButton);
 };
 
-buttons.forEach(element => element.addEventListener("click", turnOn));
+const activateButtons = () => {
+    buttons.forEach(element => element.addEventListener("click", turnOn));
+};
+
+activateButtons();
