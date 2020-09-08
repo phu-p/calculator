@@ -34,7 +34,7 @@ const deleteInput = () => {
 const displaySolution = () => {
     let solution = userInput.num1.join("");
 
-    if(solution === "NaN") {
+    if(solution === "Infinity") {
         resetAllUserInput();
         screenText.textContent = "Undefined";
     } else if(userInput.solution.length !== 0) {
@@ -56,15 +56,7 @@ const operate = (operator, a, b) => {
 
     const multiplication = (num1, num2) => {return num1 * num2;};
 
-    const division = (num1, num2) => {
-        if(num2 === 0) {
-            resetUserInput();
-            let errorMessage = userInput.num1.push("Undefined");
-            return errorMessage;
-        } else {
-            return num1 / num2;
-        }
-    };
+    const division = (num1, num2) => {return num1 / num2;}
     
     const power = (a, b) => {
         const mathPower = Math.pow(a, b);
@@ -114,19 +106,33 @@ const joinNumbers = () => {
         let num2Joined = userInput.num2.join("");
         let number2 = Number(num2Joined);
         let operator = userInput.mathOperator.shift();
-        operate(operator, number1, number2);
-        checkConditions();
+        if(operator !== "division") {
+            operate(operator, number1, number2);
+            checkConditions();
+        } else if(number2 === 0) {
+            userInput.num1 = [];
+            userInput.num2 = [];
+            userInput.num1.push("Undefined");
+        } else {
+            operate(operator, number1, number2);
+            checkConditions();
+        }
     }
 };
 
 const checkSolution = () => {
+    let error = userInput.num1.join("");
+
     if(userInput.solution.length === 1) {
         userInput.num1 = [];
         userInput.num2 = [];
         let solution = userInput.solution;
         userInput.num1.push(solution);
         userInput.solution = [];
-    };
+    } else if(userInput.num1.length === 1 && error === "Undefined" ) {
+        resetAllUserInput();
+        screenText.textContent = "Syntax Error";
+    }
 };
 
 const checkConditions = () => {
