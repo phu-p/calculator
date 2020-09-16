@@ -24,13 +24,17 @@ const deleteInput = () => {
         userInput.num1.pop();
         let num1Joined = userInput.num1.join("");
         screenText.textContent = num1Joined;
-    } else if(userInput.mathOperator.length !== 0) {
+    } else if(userInput.mathOperator.length !== 0 && userInput.num2.length !== 0) {
         userInput.num2.pop();
         let num2Joined = userInput.num2.join("");
         let num1Joined = userInput.num1.join("");
         let operator = userInput.textContentOperator;
         screenText.textContent = num1Joined + " " + operator + " " + num2Joined;
-    }
+    } else if(userInput.mathOperator.length !== 0) {
+        userInput.mathOperator.pop();
+        let num1Joined = userInput.num1.join("");
+        screenText.textContent = num1Joined;
+    };
 };
 
 const displaySolution = () => {
