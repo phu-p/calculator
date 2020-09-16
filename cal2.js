@@ -1,6 +1,7 @@
 let buttons = document.querySelectorAll(".button");
 let screenText = document.getElementsByClassName("screen")[0];
 let userInput = {
+    textContentOperator: "",
     mathOperator: [],
     num1: [],
     num2: [],
@@ -19,15 +20,16 @@ const resetUserInput = () => {
 };
 
 const deleteInput = () => {
-    let num1Joined = userInput.num1.join("");
-    let num2Joined = userInput.num2.join("");
-
-    if(userInput.num1.length !== 0) {
+    if(userInput.mathOperator.length === 0) {
         userInput.num1.pop();
+        let num1Joined = userInput.num1.join("");
         screenText.textContent = num1Joined;
-    } else if(userInput.num2.length !== 0) {
+    } else if(userInput.mathOperator.length !== 0) {
         userInput.num2.pop();
-        screenText.textContent = num2Joined;
+        let num2Joined = userInput.num2.join("");
+        let num1Joined = userInput.num1.join("");
+        let operator = userInput.textContentOperator;
+        screenText.textContent = num1Joined + " " + operator + " " + num2Joined;
     }
 };
 
@@ -95,9 +97,9 @@ const removeDecimals = () => {
     }
 };
 
-const sendOperator = value => {
-    userInput.mathOperator.push(value);
-};
+const sendOperator = value => {userInput.mathOperator.push(value);};
+
+const sendTextContentOperator = sign => {userInput.textContentOperator = sign;};
 
 const joinNumbers = () => {
     if(userInput.mathOperator.length === 2){
@@ -169,24 +171,31 @@ const storeInputs = elementValue => {
     switch(elementValue) {
         case "addition":
             sendOperator(elementValue);
+            sendTextContentOperator("+");
             break;
         case "subtraction":
             sendOperator(elementValue);
+            sendTextContentOperator("-");
             break;
         case "division":
             sendOperator(elementValue);
+            sendTextContentOperator("÷");
             break;
         case "multiplication":
             sendOperator(elementValue);
+            sendTextContentOperator("*");
             break;
         case "power":
             sendOperator(elementValue);
+            sendTextContentOperator("^");
             break;
         case "equal":
             sendOperator(elementValue);
             finishCalculation();
             checkSolution();
             displaySolution();
+            break;
+        case "delete":
             break;
         default:
             sendNums(elementValue);
